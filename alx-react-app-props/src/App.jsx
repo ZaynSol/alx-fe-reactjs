@@ -4,7 +4,7 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
 import Counter from './components/Counter';
-import ProfilePage from './components/ProfilePage';
+import ProfilePage from './ProfilePage'; // Instead of './components/ProfilePage'
 import UserContext from './UserContext';
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
@@ -21,7 +21,7 @@ function App() {
         <WelcomeMessage />
         <Header />
         <MainContent />
-        <UserProfile /> {/* ✅ No props */}
+        <UserProfile /> {/* ✅ No props needed because of Context */}
         <Counter />
         <ProfilePage />
         <Footer />
