@@ -1,7 +1,6 @@
-// src/main.jsx or src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RecipeList from './components/RecipeList';
-import RecipeDetail from './components/RecipeDetail';
+import RecipeDetails from './components/RecipeDetails'; // ✅ Correct name
 import EditRecipeForm from './components/EditRecipeForm';
 
 function App() {
@@ -9,7 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<RecipeList />} />
-        <Route path="/recipes/:id" element={<RecipeDetail />} />
+        <Route path="/recipes/:id" element={<RecipeDetails />} /> {/* ✅ Fixed name */}
         <Route path="/edit/:id" element={<EditRecipeForm />} />
       </Routes>
     </Router>

@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
-import { useRecipeStore } from './recipeStore';
+import { useRecipeStore } from './recipeStore'; // ✅ Must be named import!
 
 const RecipeDetails = () => {
   const { id } = useParams();
+
   const recipe = useRecipeStore((state) =>
     state.recipes.find((r) => r.id === parseInt(id))
   );
@@ -12,7 +13,7 @@ const RecipeDetails = () => {
   return (
     <div>
       <h2>{recipe.title}</h2>
-      <p>ID: {recipe.id}</p> {/* 👈 Make sure this line exists */}
+      <p>ID: {recipe.id}</p>
       <p>{recipe.description}</p>
     </div>
   );
