@@ -1,15 +1,16 @@
-// src/App.jsx
+// src/main.jsx or src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AddRecipeForm from './components/AddRecipeForm';
 import RecipeList from './components/RecipeList';
-import RecipeDetails from './components/RecipeDetails';
+import RecipeDetail from './components/RecipeDetail';
+import EditRecipeForm from './components/EditRecipeForm';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<><AddRecipeForm /><RecipeList /></>} />
-        <Route path="/recipes/:id" element={<RecipeDetails />} />
+        <Route path="/" element={<RecipeList />} />
+        <Route path="/recipes/:id" element={<RecipeDetail />} />
+        <Route path="/edit/:id" element={<EditRecipeForm />} />
       </Routes>
     </Router>
   );
