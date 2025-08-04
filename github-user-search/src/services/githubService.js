@@ -68,4 +68,21 @@ export async function getUserDetails(username) {
   }
 }
 
-export const fetchUserData = getUserDetails;
+// Explicit implementation so tests mocking axios.get see the direct call
+export async function fetchUserData(username) {
+  if (!username) throw new Error('Username is required');
+  const url = `https://api.github.com/users/${encodeURIComponent(username)}`;
+  try {
+    const response = await axios.get(url, {
+      headers: defaultHeaders,
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      const status = error.response.status;
+      const message = error.response.data?.message || error.message;
+      throw new Error(`Failed to fetch user: ${status} ${message}`);
+    }
+    throw new Error(`Network error: ${error.message}`);
+  }
+}
